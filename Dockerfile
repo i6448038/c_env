@@ -17,6 +17,8 @@ RUN ./buildconf
 RUN ./configure
 RUN make
 RUN make install
-#ADD . /root/workspace
-#RUN chmod 777 -R ~/workspace
-#VOLUME ["/root/workspace"]
+RUN cd ..
+RUN mkdir outPut
+ADD . /root/outPut
+RUN chmod 777 -R /root/outPut
+VOLUME ["/root/outPut"]
